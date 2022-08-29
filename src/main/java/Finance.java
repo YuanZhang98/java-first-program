@@ -16,11 +16,11 @@ public class Finance {
 
     private static boolean validateCommandArguments(String[] args) {
         switch (args[0]){
-            case "BEST_LOAN_RATES":
+            case BEST_LOAN_RATES:
                 return (args.length == 1);
-            case "SAVINGS_CALCULATOR":
+            case SAVINGS_CALCULATOR:
                 return (args.length == 3);
-            case "MORTGAGE_CALCULATOR":
+            case MORTGAGE_CALCULATOR:
                 return (args.length == 4);
         }
         return false;
@@ -28,15 +28,15 @@ public class Finance {
 
     private static void executeCommand(String command, String[] arguments) {
         switch (command){
-            case "BEST_LOAN_RATES":
+            case BEST_LOAN_RATES:
                 System.out.println("Finding best loan rates ...");
                 BestLoanRates.main(arguments);
                 return;
-            case "SAVINGS_CALCULATOR":
+            case SAVINGS_CALCULATOR:
                 System.out.println("Finding your net savings ...");
                 SavingsCalculator.main(arguments);
                 return;
-            case "MORTGAGE_CALCULATOR":
+            case MORTGAGE_CALCULATOR:
                 System.out.println("Finding your monthly payment ...");
                 MortgageCalculator.main(arguments);
                 return;
@@ -52,7 +52,7 @@ public class Finance {
 
         boolean isValidCommand = validateCommandArguments(args);
         if (!isValidCommand){
-            commandsToUsage.get(args[0]);
+            System.out.println(commandsToUsage.get(args[0]));
             return;
         }
 
